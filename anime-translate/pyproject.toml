@@ -1,0 +1,39 @@
+[project]
+name = "animtl"
+version = "0.2.0"
+description = "Agentic pipeline that replaces burned-in Japanese text in anime with English: CV models for pixels, a local vision-language agent for judgement."
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "torch>=2.7",
+    "torchvision>=0.22",
+    "easyocr>=1.7.2",
+    "opencv-python-headless>=4.10",
+    "scenedetect>=0.6.6",
+    "numpy",
+    "pillow>=10",
+    "tqdm",
+]
+
+[project.optional-dependencies]
+# Better reading of stylised lettering when EasyOCR is unsure. Adds transformers and a
+# ~450 MB model; `uv sync --extra manga` to install.
+manga = ["manga-ocr>=0.1.14"]
+
+[project.scripts]
+animtl = "animtl.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["animtl"]
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cu128" }]
+torchvision = [{ index = "pytorch-cu128" }]
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true

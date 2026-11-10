@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+models/
+*_work/
+*_en.mp4
+*.mp4
+
+# agent run outputs
+*.jsonl
+dictionary_cache.json
