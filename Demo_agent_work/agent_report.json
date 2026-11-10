@@ -1,0 +1,83 @@
+{
+ "model": "qwen3-vl:4b-instruct",
+ "done": [
+  "understand",
+  "read",
+  "translate",
+  "qa_loop",
+  "final_render",
+  "review",
+  "evaluate"
+ ],
+ "scenes": {
+  "0": {
+   "kind": "title_card",
+   "description": "This is an episode title card for a new episode of the anime, featuring the episode's title in Japanese text.",
+   "tone": "childish"
+  },
+  "2": {
+   "kind": "sign",
+   "description": "a screen showing a character selection or identification interface with Japanese text for characters and sounds",
+   "tone": "childish"
+  }
+ },
+ "reading_changes": [
+  {
+   "shot": 2,
+   "ocr": "カピパラ",
+   "agent": "カピバラ",
+   "reason": "OCR misread パ as バ (a common look-alike error), but the correct word is カピバラ (capybara). The original OCR output is incorrect."
+  }
+ ],
+ "qa": [
+  {
+   "round": 1,
+   "checked": 18,
+   "failed": {}
+  }
+ ],
+ "render": {
+  "inpainted": 75,
+  "plate_reuse": 173,
+  "frames_copied": 149
+ },
+ "review_flags": [
+  {
+   "shot": 2,
+   "frame": 291,
+   "text": "いろきめろ",
+   "area": [
+    403,
+    583,
+    781,
+    856
+   ]
+  }
+ ],
+ "metrics": {
+  "text_removal": {
+   "sampled_frames": 49,
+   "japanese_in_input": 115,
+   "japanese_in_output": 0,
+   "removed_pct": 100.0
+  },
+  "fidelity": {
+   "psnr_outside_edits_db": 40.57,
+   "note": "re-encode only; higher is better, > 40 dB is visually identical"
+  },
+  "edited_area_pct": 6.67,
+  "stability": {
+   "static_pairs": 582,
+   "mean_abs_change_output": 0.028,
+   "mean_abs_change_input": 0.164
+  }
+ },
+ "agent_stats": {
+  "llm_calls": 42,
+  "tool_calls": 23,
+  "prompt_tokens": 51855,
+  "output_tokens": 2204,
+  "llm_seconds": 78.7,
+  "wall_seconds": 308.9
+ }
+}
